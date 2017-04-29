@@ -43,11 +43,10 @@
 	    // Check if letter has already been entered
 	    // If yes, then do nothing
 	    if (guessedLetterArray.indexOf(userPick) != -1) {
+
 	        // Do nothing
 	        return;
 	    }
-	    console.log(userPick);
-
 
 	    // If not then add to guessedLetterArray then proceed with comparison
 	    guessedLetterArray.push(userPick);
@@ -55,22 +54,20 @@
 	    guessLeft--;
 	    document.querySelector("#guesses").innerHTML = guessLeft;
 
-
-
 	    console.log("Compick: " + comPick + " Userpick: " + userPick);
 	    if (comPick == userPick) {
 	        win++;
 	        document.querySelector("#wins").innerHTML = win;
-
-	        //guessedLetterArray = [];
+	        guessedLetterArray = [];
 	        document.querySelector("#letterArray").innerHTML = " ";
 	        document.querySelector("#guesses").innerHTML = 9;
 	        guessLeft = 9;
 	        randletter();
+
 	    } else if (guessLeft < 1) {
 	        losses++;
 	        document.querySelector("#losses").innerHTML = losses;
-	        //guessedLetterArray = [];
+	        guessedLetterArray = [];
 	        document.querySelector("#letterArray").innerHTML = " ";
 	        guessLeft = 9;
 	        document.querySelector("#guesses").innerHTML = guessLeft;
