@@ -42,12 +42,12 @@
 	function compare() {
 	    // Check if letter has already been entered
 	    // If yes, then do nothing
-	    if (guessedLetterArray.indexOf(userPick) != -1) {
+	    
+		if (guessedLetterArray.indexOf(userPick) != -1) {
 
-	        // Do nothing
-	        return;
-	    }
-
+			    return;
+			}
+		 
 	    // If not then add to guessedLetterArray then proceed with comparison
 	    guessedLetterArray.push(userPick);
 	    document.querySelector("#letterArray").innerHTML += userPick + ", ";
@@ -81,6 +81,14 @@
 	document.onkeyup = function(event) {
 	    write();
 	    userPick = String.fromCharCode(event.keyCode).toLowerCase();
+
+		var keyPressed = event.keyCode || event.which;
+		console.log(keyPressed);
+		if (keyPressed < 65 || keyPressed  > 90) {
+			document.querySelector("#message").innerHTML = "Enter a valid letter";
+			return ;
+		}
+
 	    // It takes the user's response and "pushes" (or add the 
 	    compare();
 	};
